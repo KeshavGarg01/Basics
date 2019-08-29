@@ -1,0 +1,76 @@
+//insert or delete at any positionin array, linear serach,bubble sort
+#include <stdio.h>
+int main()
+{
+    int arr[100],n,i,j,p,d,new,key,k;
+    printf("enter no. of elements: ");
+    scanf("%d",&n);
+    printf("elements\n");
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+   printf("enter position to ensert new element: ");
+   scanf("%d",&p);
+   printf("enter new element: ");
+   scanf("%d",&new);
+   j=n-1;
+  while(j>=p-1)
+  {
+      arr[j+1]=arr[j];
+      j--;
+  }
+  arr[p-1]=new;
+  n++;
+
+   for(i=0;i<n;i++)
+   {
+       printf("%d",arr[i]);
+   }
+   
+   printf("\nenter position to be deletd: ");
+   scanf("%d",&d);
+   j=n-1;
+   while(d<=j)
+   {
+       arr[d-1]=arr[d];
+       d++;
+       
+   }
+    n--;
+    for(i=0;i<n;i++)
+   {
+       printf("%d",arr[i]);
+   }
+   printf("\nenter key to search via linear search: ");
+   scanf("%d",&key);
+   for(i=0;i<n;i++)
+   {
+       if(key==arr[i])
+       {
+       printf("found");break;
+       }
+       else if(i==n-1 && key!=arr[i])
+       printf("not found");
+   }
+   
+   for(k=0;k<n-1;k++)
+   {
+       for(int l = 0;l<n-k-1;l++)
+       {
+       if(arr[l]>arr[l+1])
+       {
+           int temp;
+           temp = arr[l+1];
+           arr[l+1] = arr[l];
+           arr[l] = temp;
+       }
+       }
+   }
+   printf("\nsorted array is: ");
+   for(i=0;i<n;i++){
+  printf("%d",arr[i]);
+   }
+   
+    return 0;
+}
